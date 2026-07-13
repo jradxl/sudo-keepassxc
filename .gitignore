@@ -221,6 +221,7 @@ __marimo__/
 *.kdbx
 .env
 
+kpxcsudo.bin
 kpxcsudo.build
 kpxcsudo.onefile-build
 kpxcsudo.dist
