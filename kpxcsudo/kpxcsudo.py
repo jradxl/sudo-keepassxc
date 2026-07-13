@@ -3,7 +3,7 @@ import sys, pykeepass, getpass, platform
 def main():
     password = getpass.getpass("Your KeepassXC Password: ")
     try:
-        kp = pykeepass.PyKeePass('/home/jradley/.keepassxc/db.kdbx', password=password)
+        kp = pykeepass.PyKeePass('/home/<username>/.keepassxc/<dababase>.kdbx', password=password)
     except Exception as err:
         print("ERROR:", err)
         sys.exit(1)
