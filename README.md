@@ -23,4 +23,16 @@ this the program SUDO_ASKPASS uses, this:-
 SUDO_ASKPASS="</Absolute-Path-To>/scripts/kpxcsudo.bin" /usr/bin/sudo -A "$@"
 
 
+Other Apps
+https://github.com/Frederick888/git-credential-keepassxc
+https://kpcli.sourceforge.io
+I think the above use the browser extension and protocol, whereas I wanted a pure command-line version for a headless server
+
+keepassxc-cli
+which comes with the GUI installed version has a dependency on Qt5 or Qt6
+
+Deprecated
+https://github.com/rebkwok/kpcli
+
+
 //June2026
