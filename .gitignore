@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+*.kdbx
+.env
+
+kpxcsudo.build
+kpxcsudo.onefile-build
+kpxcsudo.dist

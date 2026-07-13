@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "SUDO_ASKPASS Driver..."
+SUDO_ASKPASS="</Absolute-Path-To>/scripts/kpxcsudo.bin" /usr/bin/sudo -A "$@"
+echo ""
+

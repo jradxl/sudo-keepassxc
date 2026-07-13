@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#References
+#https://kiosk.tm/blog/data/developer-talk-merits-isolation-pythons-virtualnv/
+#https://ianbicking.org/
+#https://virtualenv.pypa.io/en/stable/
+
+##
+## Shell script to take place of "source venv/bin/activate"
+## Add script to /usr/local/bin
+## Usage:
+##  cd myproject
+##  python3 -m venv venv
+##  inve
+##
+
+
+PWD="$PWD"
+#echo "Current PWD: $PWD"
+VIRTUAL_ENV=""
+
+if [[ -d "$PWD/venv" ]]; then
+	VIRTUAL_ENV="$PWD/venv"
+fi
+
+if [[ -d "$PWD/.venv" ]]; then
+	VIRTUAL_ENV="$PWD/.venv"
+fi
+
+if [[ -z "$VIRTUAL_ENV" ]]; then
+    #echo "No ${BLUE}venv${NC} in current directory."
+    echo "No VENV or .VENV  in current directory."
+    exit
+fi
+
+export VENV_PROJECT_NAME=${PWD##*/}
+#echo "VENV_PROJECT_NAME: <$VENV_PROJECT_NAME>"
+
+export VIRTUAL_ENV
+#echo "VIRTUAL_ENV: <$VIRTUAL_ENV>"
+
+#unset PATH
+#export PATH="/usr/local/bin:/usr/bin:/bin"
+
+export PATH="${VIRTUAL_ENV// /\\ /}/bin:$PATH"
+#echo "PATH: <$PATH> || @is: <$@>"
+
+hash -r
+
+##export PS1="\n[\w]\n(venv) \u@\h $ "
+
+unset PYTHON_HOME
+#exec "${@:-$SHELL}"
+exec /bin/bash --rcfile <(echo "PS1='\n[\w]\n($VENV_PROJECT_NAME) \u@\h $ '") -i
